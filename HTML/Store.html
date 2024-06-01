@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width = device - width, initial-scale=1.0">
+    <title>greenMart.lk</title>
+    <link rel ="icon" type="image" href="../Images/Icon.png"> 
+    <link rel="stylesheet" href="../CSS/Store.css">
+    <link rel="stylesheet" href="../CSS/Template.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="content">
+    <header>
+        <div class="brand">
+            <span1><b>green</b></span1><span2><b>Mart.lk<img src="../Images/Icon.png" alt="Logo"></b></span2>
+        </div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="../HTML/HomePage.html">Home</a>
+                <a href="../HTML/Gallery.html">Gallery</a>
+                <a href="../HTML/Store.html">Shop</a>
+                <a href="../HTML/UserProfile.html">User Profile</a>
+                <a href="../HTML/Feedback.html">Feedback</a>
+                <a href="../HTML/SiteMap.html">Sitemap</a>
+                <a href="../HTML/Team.html">Team</a>
+            </div>
+        </div>
+    </header> 
+    <div class="container">
+        <div class="top">
+            <div class="title"><h3>#Explore The Freshness</h3></div>
+            <div class="icon-cart">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+                </svg>
+                <span>0</span>                  
+            </div>
+        </div>
+        <div class="veg"><h3>-Best Deals-</h3>
+        <div class="listProduct">
+            <div class="item">
+                <img src="../Images/Carrot.jpg" alt="">
+                <h3>Carrot</h3>
+                <div class="Price">Rs.40.00</div>
+                <button class="addCart">Add to Cart</button>
+            </div>
+        </div>
+        </div>
+    </div> 
+    <div class="cartTab">
+        <h2>Shopping Cart</h2>
+        <div class="listCart">
+            <!-- Existing cart items will be dynamically added here -->
+        </div>
+        <!-- Display total price here -->
+        <div class="totalPrice">Total Price: Rs. 0.00</div>
+        <div class="btn">
+            <button class="Close">CLOSE</button>
+            <button id="checkoutButton" class="Checkout">CHECK OUT</button>
+        </div>
+    </div>
+    <script>
+        const products = [
+            {
+                "id": 1,
+                "name": "Carrot",
+                "price": 40,
+                "image": "../Images/Carrot.jpg"
+            },
+            {
+                "id": 2,
+                "name": "Beetroot",
+                "price": 50,
+                "image": "../Images/Beetroot.jpg"
+            },
+            {
+                "id": 3,
+                "name": "Cabbage",
+                "price": 30,
+                "image": "../Images/Cabbage.jpg"
+            },
+            {
+                "id": 4,
+                "name": "Potatos",
+                "price": 60,
+                "image": "../Images/Potatos.jpg"
+            },
+            {
+                "id": 5,
+                "name": "Pumpkin",
+                "price": 50,
+                "image": "../Images/Pumpkin.jpg"
+            },
+            {
+                "id": 6,
+                "name": "Tomatos",
+                "price": 35,
+                "image": "../Images/Tomatos.jpg"
+            },
+            {
+                "id": 7,
+                "name": "Green Beans",
+                "price": 40,
+                "image": "../Images/GreenBeans.jpg"
+            },
+            {
+                "id": 8,
+                "name": "Cucumber",
+                "price": 55,
+                "image": "../Images/Cucumber.jpg"
+            },
+            {
+                "id": 9,
+                "name": "Cauliflower",
+                "price": 40,
+                "image": "../Images/Cauliflower.jpg"
+            },
+            {
+                "id": 10,
+                "name": "Sweet Potato",
+                "price": 20,
+                "image": "../Images/SweetPotato.jpg"
+            },
+            {
+                "id": 11,
+                "name": "Plantation Flower",
+                "price": 70,
+                "image": "../Images/Planatationflo.jpg"
+            },
+            {
+                "id": 12,
+                "name": "Ladies Fingers",
+                "price": 40,
+                "image": "../Images/Ladyfin.jpg"
+            },
+            {
+                "id": 13,
+                "name": "Leeks",
+                "price": 100,
+                "image": "../Images/leeks.jpg"
+            },
+            {
+                "id": 14,
+                "name": "Batana",
+                "price": 140,
+                "image": "../Images/batana.jpg"
+            },
+            {
+                "id": 15,
+                "name": "Nivithi",
+                "price": 5,
+                "image": "../Images/Nivithi.jpg"
+            },
+            {
+                "id": 16,
+                "name": "Anoda",
+                "price": 40,
+                "image": "../Images/anoda.jpg"
+            },
+            {
+                "id": 17,
+                "name": "Avacado",
+                "price": 90,
+                "image": "../Images/avacado.jpg"
+            },
+            {
+                "id": 18,
+                "name": "Guava",
+                "price": 70,
+                "image": "../Images/guava.jpg"
+            }, 
+            {
+                "id": 19,
+                "name": "Papaya",
+                "price": 100,
+                "image": "../Images/papaya.jpg"
+            },
+            {
+                "id": 20,
+                "name": "Banana",
+                "price": 120,
+                "image": "../Images/banana.jpg"
+            }, 
+            {
+                "id": 21,
+                "name": "PineApple",
+                "price": 60,
+                "image": "../Images/pinea.jpg"
+            },
+            {
+                "id": 22,
+                "name": "Pears",
+                "price": 80,
+                "image": "../Images/pears.jpg"
+            }, 
+            {
+                "id": 23,
+                "name": "WoodApple",
+                "price": 40,
+                "image": "../Images/woodA.jpg"
+            },
+            {
+                "id": 24,
+                "name": "Orange",
+                "price": 140,
+                "image": "../Images/orange.jpg"
+            }, 
+            {
+                "id": 25,
+                "name": "Melon",
+                "price": 70,
+                "image": "../Images/melon.jpg"
+            }
+        ];
+    </script>
+    <div onclick="scrollToTop()" class="scrollTop">Top</div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p>Bringing Nature's Best to Your Plate: Where Freshness Meets Flavor. We are team greenMart.lk</p>
+                <div class="contact">
+                    <span><i class="fas fa-phone"></i> 123-456-7890</span>
+                    <span><i class="fas fa-envelope"></i> greenMart@gmail.com</span>
+                </div>
+                <a class="button" href="../HTML/EditorsPageSandith.html" target="_blank">Edited by: Sandith Sithmaka</a>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-form">
+                <h3>Contact Us</h3>
+                <form action="#">
+                    <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+                    <textarea name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+                    <button type="submit" class="btn btn-big contact-btn">
+                        <i class="fas fa-envelope"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; greenMart.lk | Designed by G22 - Group 10
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer> 
+    <script>
+        function scrollToTop(){
+            window.scrollTo(0, 0);
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>    
+<script src="../JS/Store.js"></script>    
+</body>
+</html>

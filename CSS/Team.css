@@ -1,0 +1,139 @@
+/* Reset default margin, padding, and box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set body font-family and background gradient */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(rgba(249, 249, 249, 0.5), rgba(255, 255, 255, 0)); 
+}
+
+/* Styling for the main container */
+.main {
+  max-width: 1200px; 
+  margin: 0 auto; 
+  height: 60vh; 
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Styling for the profile cards */
+.profile-card {
+  width: 350px; 
+  height: 250px; 
+  background-color: rgb(246, 246, 246);
+  padding: 35px;
+  border-radius: 100%; 
+  box-shadow: 0px 10px 30px rgba(196, 196, 196, 0.5);
+  transition: all .3s;
+  margin: 20px;
+}
+
+/* Hover effect for profile cards */ 
+.profile-card:hover {
+    border-radius: 50px;
+    height: 450px;
+}
+
+/* Styling for the profile images */
+.profile-card .img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; 
+}
+
+/* Hover effect for profile images */
+.profile-card:hover img {
+    border-radius: 10px;
+    transform: translateY(-120px);
+}
+
+/* Styling for the profile image itself */
+.img img {
+
+    width: 100%;
+    border-radius: 50%;
+    transition: all .2s;
+    
+}
+
+/* Styling for the profile captions */
+.caption {
+    text-align: center;
+    transform: translateY(-99%);
+    opacity: 0;
+    transition: all .5s;
+    
+}
+
+
+/* Hover effect for profile captions */
+.profile-card:hover .caption {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Styling for the profile names */
+.caption h3 {
+    font-size: 18px;
+    color: black;
+    padding: 20px;
+    font-weight: 600;
+}
+
+/* Styling for the topic header */
+.topic {
+  font-size: 40px;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  text-align: center;
+  opacity: 0; /* Initially hide the text */
+    transform: translateY(-100%); /* Move the text above the viewport */
+    animation: slideDown 1.8s ease forwards; /* Apply animation */
+}
+
+/* Keyframes for the topic animation */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%); /* Start position above the viewport */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End position at the top of the viewport */
+    }
+}
+
+/* Additional styling for profile image */
+.profile-card .img img {
+    object-fit: fill;
+    width: 100%;
+    border-radius: 50%;
+    transition: all .4s;
+    z-index: 99;
+    filter: grayscale(40%); 
+}
+
+
+/* Remove grayscale filter on hover */
+.profile-card:hover .img img {
+    filter: none; 
+}
+
+/* Styling for the description */
+.description {
+  font-size: 15px;
+  text-align: center;
+  padding: 40px;
+  color: black;
+}
+
+/* Center-align text with id 'cent' */
+#cent{
+  text-align: center;
+}

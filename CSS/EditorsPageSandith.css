@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    margin-top: 200px;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(rgba(249, 249, 249, 0.5), rgba(255, 255, 255, 0)); 
+
+}
+
+.uptext h2{
+    text-align: center;
+    font-size: 55px;
+    margin-bottom: 100PX;
+    opacity: 0; /* Initially hide the text */
+    transform: translateY(-100%); /* Move the text above the viewport */
+    animation: slideDown 3s ease forwards; /* Apply animation */
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%); /* Start position above the viewport */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End position at the top of the viewport */
+    }
+}
+.uptext h3{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: -45px;
+    opacity: 0; /* Initially hide the text */
+    transform: translateY(-100%); /* Move the text above the viewport */
+    animation: slideDown 3.5s ease forwards; /* Apply animation */
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%); /* Start position above the viewport */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End position at the top of the viewport */
+    }
+}
+.uptext p{
+    text-align: center;
+    padding: 60px;
+    font-size: 17px;
+}
+.accordian{
+    margin: 60px auto;
+    width: 600px;
+}
+.accordian li{
+    list-style: none;
+    width: 100%;
+    margin: 20px;
+    padding:10px;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: 6px 6px 10px -1px rgba(64, 64, 64, 0.15),
+                    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+.accordian li label{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+label::before{
+    content:'+';
+    margin-right: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+input[type="radio"]{
+    display: none;
+}
+.accordian .content{
+    color: #555;
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, padding 0.5s;
+}
+
+.accordian input[type="radio"]:checked + label +.content{
+    max-height: 400px;
+    padding: 10px 10px 20px;
+}
+
+.accordian input[type="radio"]:checked + label::before{
+    content: '-';
+}
+.content .Mbutton{
+    padding: -10px;
+}
+.content .button {
+    background-color: rgb(5, 157, 88); /* Green background */
+    border: none; /* No border */
+    color: white; /* White text */
+    text-align: center; /* Center text */
+    display: inline-block; /* Display as inline-block */
+    font-size: 14px; /* Font size */
+    transition-duration: 0.4s; /* Animation speed */
+    cursor: pointer; /* Cursor pointer */
+    border-radius: 50px; /* Rounded corners */
+    width: 200px;
+    padding: 5px;
+}
+.scrollTop{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 15px;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+.scrollTop:hover{
+    background-color: rgb(235, 255, 204);
+}

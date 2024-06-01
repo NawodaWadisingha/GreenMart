@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(249, 249, 249, 0.5), rgba(255, 255, 255, 0)); 
+}   
+h1 {
+    text-align: center;
+}
+
+main {
+    margin-top: 150px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Add this for z-index */
+}
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* Send video to the background */
+}
+section {
+    margin-bottom: 40px;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: rgba(240, 240, 240, 0.547);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+.left-align {
+    text-align: left;
+}
+.right-align {
+    text-align: left;
+}
+.center-align {
+    text-align: left;
+}
+
+.large-font {
+    font-size: 16px; 
+ }
+
+.medium-font {
+    font-size: 14px;
+ }
+        
+img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px;
+}
+.card-content {
+    flex: 1;
+    padding-right: 20px;
+}
+.card img {
+    width: 150px; /* Adjust image width as needed */
+}
+.card:hover {
+    background-color: #e0e0e0;
+}
+
+video {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%; /* Set width to 100% to fit the container */
+height: auto; /* Let the height adjust automatically */
+z-index: -1; /* Send video to the background */
+}
+
+nav {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 105px;
+    margin-left: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+nav ul li a:hover {
+    color: #666;
+}

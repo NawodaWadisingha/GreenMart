@@ -1,0 +1,80 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+      body {
+      font-family: 'Poppins', sans-serif;
+      margin-top: 100px;
+        
+          }
+          h1 {
+              text-align: center;
+              margin-bottom: 20px;
+          }
+  
+          /* Center-align paragraphs inside .task-list */
+          .task-list p{
+              text-align: center;
+              margin-bottom: 20px;
+          }
+  
+          /* Center-align .task-list */
+          .task-list {
+              text-align: center;
+          }
+  
+          /* Center-align elements with id 'cent' */
+          #cent{
+              text-align: center;
+          }
+  
+          
+  /* Styling for links inside .edit */
+          .edit a{
+              text-decoration:none;
+              font-size: 13px;
+              padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          background-color: #43db66;
+          color: white;
+          cursor: pointer;
+          margin-top: 10px;
+          margin-bottom: 20px;
+          }
+  
+          /* Hover effect for links */
+          a:hover {
+              text-decoration: underline;
+          }
+  
+          /* Styling for the green box */
+          .green-box {
+          
+          background-color: #4CAF50;
+          color: white;
+          padding: 5px;
+      }
+  
+      /* Styling for the light green box */
+      .light-green-box {
+          background-color: #d4edda;
+          max-width: 100%;
+           padding: 20px;
+           
+      }
+  
+      /* Styling for anchor buttons */
+      .anchor-button {
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          background-color: #28a745;
+          color: white;
+          cursor: pointer;
+          margin-top: 10px;
+          margin-bottom: 20px;
+      }
+      

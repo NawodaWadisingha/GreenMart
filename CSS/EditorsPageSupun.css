@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.content{
+    margin-top: 150px;
+    text-align: center;
+}
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../Images/pageeditor.jpg');
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(rgba(249, 249, 249, 0.5), rgba(255, 255, 255, 0)); 
+    }
+.toptext{
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-container {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: rgb(3, 1, 6);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color:#0b751e;
+}
+
+
+#jump-to-bottom{
+    color:blue;
+    z-index: 1000;
+    padding: 20px 20px;
+}
+#jump-to-top {
+    color:green;
+    padding: 20px 20px;
+    z-index: 1000;
+}
+
+.card {
+    background-color:rgb(210, 205, 205);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+

@@ -1,0 +1,165 @@
+
+header {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 90px;
+    transition: 0.5s all;
+    opacity: 1; /* Ensure header is visible */
+    background-color:transparent;
+    filter: drop-shadow(0 0px 0px rgb(204, 204, 204));
+}
+span1{
+    color:rgb(5, 157, 88);
+    font-size: 23px;
+}
+span2{
+    color: rgb(244, 180, 0);
+    font-size: 25px;
+}
+span2 img{
+    height: 35px; /* Height of the logo image */
+    padding: 0px 5px;
+}      
+header .brand {
+    color: #000;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+header .navigation {
+    position: relative;
+}
+
+header .navigation .navigation-items a {
+    position: relative;
+    color: black;
+    font-size: 1em;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+}
+header .navigation .navigation-items a::before {
+    content: '';
+    position: absolute;
+    background:rgb(5, 157, 88);
+    width: 0;
+    height: 3px;
+    margin-bottom: -2px;
+    bottom: 0px;
+    border-radius: 50px;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover::before {
+    width: 100%;
+    border-radius: 50px;
+}
+
+footer {
+    background-color:rgb(0, 30, 0);
+    color: white;
+    padding: 15px 25px;
+}
+  
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+  
+.footer-section {
+    flex-basis: 25%;
+    padding: 20px;
+}
+  
+.footer-section h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+  
+.footer-section p {
+    font-size: 0.95rem;
+}
+  
+.contact {
+    margin-top: 20px;
+    margin-bottom: 20px
+}
+  
+.contact span {
+    display: block;
+    margin-bottom: 5px;
+}
+  
+.links ul {
+    list-style: none;
+    padding: 0;
+}
+  
+.links li {
+    margin-bottom: 10px;
+}
+  
+.links a {
+    color: #fff;
+    text-decoration: none;
+}
+  
+.contact-form textarea {
+    height: 90px;
+}
+  
+.contact-input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+  
+.contact-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+  
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #777;
+    font-size: 0.9rem;
+}
+.social-icons a i {
+    color: rgb(0, 179, 0);
+}
+.social-icons a {
+    margin-right: 14px; /* Increase the gap between icons */
+}
+.button {
+    width: 325px;
+    padding: 15px 20px;
+    background-color:rgb(5, 157, 88); /* Blue color */
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+    border-radius: 50px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 15px;
+}
+
+.button:hover {
+    background-color: #0b2500; /* Darker blue color on hover */
+}

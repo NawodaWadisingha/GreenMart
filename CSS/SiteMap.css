@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+        overflow-x: hidden;
+        position: relative;
+        background-image: url(../Images/green.jpg);         
+        background-repeat: no-repeat;
+        background-size: fixed;
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+    }
+    
+    @import url('https://fonts.google.com/specimen/Raleway?query=rale');
+    h1{
+        font-family:'Raleway',sans-serif;
+        font-size: 3em;
+        font-weight: 500;
+        color: white;
+        text-align: center;
+        text-shadow: 2px 2px 2px #000;
+        transform: translateY(10px)
+    }
+    
+    @import url('https://fonts.google.com/specimen/Montserrat?query=mont'); 
+    h2{
+        font-family:'Montserrat',sans-serif;
+        font-size: 40px;
+        font-weight: 500;
+        color: black;
+        text-align: center;
+        text-shadow: 2px 2px 2px #605b5d;
+        margin-bottom: 10px;
+        transform: translateY(-15px);
+    }
+
+     
+@import url('https://fonts.google.com/specimen/Raleway?query=rale');
+h1{
+    font-family:'Raleway',sans-serif;
+    font-size: 3em;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000;
+}
+
+@import url('https://fonts.google.com/specimen/Montserrat?query=mont'); 
+h2{
+    font-family:'Montserrat',sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: black;
+    text-align: center;
+    text-shadow: 2px 2px 2px #605b5d;
+    margin-bottom: 10px;
+}
+
+
+p{
+    color: white;
+}
+
+.align{
+    margin-left: 10px;
+    line-height: 30px;
+}
+
+.theme{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.button1{
+    display: inline-block;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #b52323;
+    text-align: center;
+    font-size: 17px;
+    padding: 20px;
+    width: 170px;
+    height: 20px;
+    margin: 20px;
+    cursor: pointer;
+    transition: all 0.4;
+    vertical-align: center;
+    align-items: center;
+    line-height: 2px;
+}
+
+.button1 span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button1 span:after{
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0.5;
+    left: 0.5;
+    transition: 0.5s;
+}
+
+.button1:hover span{
+    padding-right: 20px;
+}
+
+.button1:hover span:after{
+    opacity: 1;
+    right: 0;
+}

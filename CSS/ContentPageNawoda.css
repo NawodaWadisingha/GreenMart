@@ -1,0 +1,139 @@
+/* Reset default margin, padding, and border styles */
+*{
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+  }
+  
+  /* Set the font family for the whole body */
+  body {
+      font-family: 'Poppins', sans-serif;
+      margin-top:  150px; /* Add space at the top of the body */
+          }
+  
+   /* Styling for the green box */       
+  .green-box {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+  }
+  
+  /* Styling for paragraphs inside the green box */
+  .green-box p {
+      margin-bottom: 20px;
+  }
+  
+  /* Styling for links inside the green box */
+  .green-box a {
+      color: white;
+      text-decoration: none;
+  }
+  
+  /* Styling for the link boxes */
+  .link-box {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 5px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  /* Styling for anchor buttons */
+  .anchor-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+  
+  /* Flex container styling for section 1 */
+  .flex-container1 {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  }
+  
+  /* Styling for the link with id 'organic' */
+  #organic{
+      color: black;
+  }
+  
+  
+  /* Styling for the image container in section 1 */
+  .img1 {
+  flex: 1;
+  margin-right: 20px; 
+  
+  }
+  
+  /* Styling for images in section 1 */
+  .img1 img {
+  max-width: 100%; 
+  height: auto; 
+  }
+  
+  /* Styling for the content container in section 1 */
+  .content1 {
+  flex: 2; 
+  text-align: left;
+  padding-left: 20px; 
+  }
+  
+  /* Flex container styling for section 2 */
+  .flex-container2 {
+  display: flex;
+  background-color: #cde6d0; 
+  padding: 20px;
+  }
+  
+  /* Styling for the image container in section 2 */
+  .img2 {
+  flex: 1;
+  
+  }
+  
+  /* Styling for images in section 2 */
+  .img2 img {
+  max-width: 90%; 
+  height: auto; 
+  }
+  
+  /* Styling for the content container in section 2 */
+  .content2 {
+  flex: 1;
+  text-align: left;
+  }
+  
+  /* Media query for screens up to 768px wide */
+  @media only screen and (max-width: 768px) {
+  .flex-container1,
+  .flex-container2 {
+  flex-direction: column; /* Change flex direction to column */
+  }
+  
+  .img1,
+  .img2 {
+  max-width: 100%;
+  margin-right: 0;
+  margin-bottom: 20px; /* Add space between items */
+  }
+  
+  .content1,
+  .content2 {
+  padding-left: 0;
+  margin-right: 0;
+  }
+  }
+  

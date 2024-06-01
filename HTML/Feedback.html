@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../CSS/Feedback.css">
+    <link rel="stylesheet" href="../CSS/Template.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <title>greenMart.lk</title>
+    <link rel ="icon" type="image" href="../Images/Icon.png"> 
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <span1><b>green</b></span1><span2><b>Mart.lk<img src="../Images/Icon.png" alt="Logo"></b></span2>
+        </div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="../HTML/HomePage.html">Home</a>
+                <a href="../HTML/Gallery.html">Gallery</a>
+                <a href="../HTML/Store.html">Shop</a>
+                <a href="../HTML/UserProfile.html">User Profile</a>
+                <a href="../HTML/Feedback.html">Feedback</a>
+                <a href="../HTML/SiteMap.html">Sitemap</a>
+                <a href="../HTML/Team.html">Team</a>
+            </div>
+        </div>
+    </header> 
+    <div class="container">
+        <fieldset>
+            <h2>Feedback Form</h2>
+            <form action="https://api.web3forms.com/submit" method="POST" id="feedbackForm">
+                <div class="nameemail">
+                    <label for="nameInput">Enter your name:</label>
+                    <input id="nameInput" type="text" placeholder="Enter name here" required><br><br>
+                    <label for="emailInput">Enter your email:</label>
+                    <input id="emailInput" type="email" placeholder="Enter email here" required><br><br>
+                </div>
+                <input type="hidden" name="access_key" value="1d45682d-5f87-4f41-8ef1-24937447453e">
+                <p>Was this your first time visiting?</p>
+                <label><input type="radio" name="firstTime" value="Yes" required>Yes</label>
+                <label><input type="radio" name="firstTime" value="No" required>No</label><br><br>
+                <p>Was this website informative and easy to navigate through?</p>
+                <label><input type="radio" name="informative" value="Yes" required>Yes</label>
+                <label><input type="radio" name="informative" value="No" required>No</label><br><br>
+                <p>If "No", suggest any improvements for the future</p>
+                <textarea id="improvements" placeholder="Add your message here..." rows="4" required></textarea><br><br>
+                <div class="longmsg">
+                <p>How satisfied are you with our services? Choose from 0 to 10 with 0 being "Not satisfied at all!" and 10 being "Extremely satisfied!"</p>
+                </div>
+                <div class="rating-container">
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>5</p>
+                    <p>6</p>
+                    <p>7</p>
+                    <p>8</p>
+                    <p>9</p>
+                    <p>10</p>
+                </div>
+                <div class="RADIO">
+                    <input type="radio" name="satisfaction" value="1" required>
+                    <input type="radio" name="satisfaction" value="2" required>
+                    <input type="radio" name="satisfaction" value="3" required>
+                    <input type="radio" name="satisfaction" value="4" required>
+                    <input type="radio" name="satisfaction" value="5" required>
+                    <input type="radio" name="satisfaction" value="6" required>
+                    <input type="radio" name="satisfaction" value="7" required>
+                    <input type="radio" name="satisfaction" value="8" required>
+                    <input type="radio" name="satisfaction" value="9" required>
+                    <input type="radio" name="satisfaction" value="10" required>
+                </div>
+                <p>Would you recommend our services?</p>
+                <label><input type="radio" name="recommendation" value="Yes" required>Yes</label>
+                <label><input type="radio" name="recommendation" value="No" required>No</label><br><br>
+                <p>Would you like to receive updates about the website and the offers?</p>
+                <select id="receiveUpdates" name="receiveUpdates" required>
+                    <option value="Yes - Via Email">Yes - Via Email</option>
+                    <option value="Yes - Via Website">Yes - Via Website</option>
+                    <option value="Yes - Via Contact Number">Yes - Via Contact Number</option>
+                    <option value="No">No</option>
+                </select><br><br>
+                <p>Do you have any additional questions or requests?</p>
+                <textarea id="additionalQuestions" placeholder="Add your message here..." rows="4" required></textarea><br><br>
+                <button id="submitBtn" class="btn">Submit</button>
+            </form>
+        </fieldset>
+        <div id="previewFeedback" style="display: none;">
+            <!-- Preview will be displayed here -->
+        </div>
+        <div id="confirmationMessage" class="confirmation-message" style="display: none;">
+            <!-- Confirmation message will be displayed here -->
+            <p>Thank you for your feedback! Your response has been submitted.</p>
+            <img src="../Images/thankyou.jpg" alt="">
+        </div>
+    </div>
+    <script src="../JS/Feedback.js"></script>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About Us</h3>
+                <p>Bringing Nature's Best to Your Plate: Where Freshness Meets Flavor. We are team greenMart.lk</p>
+                <div class="contact">
+                    <span><i class="fas fa-phone"></i> 123-456-7890</span>
+                    <span><i class="fas fa-envelope"></i> greenMart@gmail.com</span>
+                </div>
+                <a class="button" href="../HTML/EditorsPageSupun.html" target="_blank">Edited by: Supun Gamage</a>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-form">
+                <h3>Contact Us</h3>
+                <form action="#">
+                    <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+                    <textarea name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+                    <button type="submit" class="btn btn-big contact-btn">
+                        <i class="fas fa-envelope"></i>
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; greenMart.lk | Designed by G22 - Group 10
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer> 
+</body>
+</html>

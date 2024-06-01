@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta tags for character set and viewport -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>greenMart.lk</title>
+<!-- Link to Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+<link rel="stylesheet" href="../CSS/Userprofile.css">
+<link rel ="icon" type="image" href="../Images/Icon.png"> 
+<link rel="stylesheet" href="../CSS/Template.css">
+</head>
+<body>
+<header>
+    <div class="brand">
+        <span1><b>green</b></span1><span2><b>Mart.lk<img src="../Images/Icon.png" alt="Logo"></b></span2>
+    </div>
+    <div class="navigation">
+        <div class="navigation-items">
+            <a href="../HTML/HomePage.html">Home</a>
+            <a href="../HTML/Gallery.html">Gallery</a>
+            <a href="../HTML/Store.html">Shop</a>
+            <a href="../HTML/UserProfile.html">User Profile</a>
+            <a href="../HTML/Feedback.html">Feedback</a>
+            <a href="../HTML/SiteMap.html">Sitemap</a>
+            <a href="../HTML/Team.html">Team</a>
+        </div>
+    </div>
+</header>
+   <!-- Main content --> 
+<div class="mtext"><h2>User Profile</h2></div>
+<div class="container">
+    <!-- Progress bar -->
+  <h3 id="progresspre"></h3>
+  <div id="progressBarContainer">
+    <div class="progress-fill"></div>
+    <!-- Steps in the progress bar --> 
+    <div class="step"></div><div class="step"></div><div class="step"></div>
+    <div class="step"></div><div class="step"></div><div class="step"></div>
+    <div class="step"></div><div class="step"></div><div class="step"></div>
+    <div class="step"></div><div class="step"></div><div class="step"></div>
+  </div>
+  <!-- Button to start the questionnaire -->
+  <button id="startBtn">Start Questionnaire</button>
+  <!-- Modal for questions -->
+  <div id="questionModal">
+    <h4 id="heading">STEP 01 STAGE 01 | 1/4</h4>
+    <p id="questionText">Question will appear here</p>
+    <input type="text" id="answerInput">
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+    <button id="skipBtn">Skip</button>
+  </div>
+</div>
+ <!-- Modal for displaying results -->
+<div id="resultsModal" class="modal-overlay">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <div id="results"></div>
+  </div>
+</div>
+   <!-- Containers for displaying profile details -->
+<div id="detailsContainer1" style="display: none;">
+    <div class="profilecontainer">
+    <h2 style="margin:0px;">Profile Details</h3>
+    <h3 id="Q1">name</h3>
+  </div>
+  </div>
+
+  <div id="detailsContainer" style="display: none;">
+    <h2 style="margin-bottom: 5px;">Personal Details</h2>
+    <div class="frame">
+      <h3 id="Q2">q2</h3>
+      <h3 id="Q3">q3</h3>
+      <h3 id="Q4">q4</h3>
+    </div>
+  </div>
+
+    <div id="detailsContainer2" style="display: none;">
+    <h2 style="margin-bottom: 5px;">Meals</h2>
+    <div class="frame">
+      <h3 id="Q5">q5</h3>
+      <h3 id="Q6">q6</h3>
+      <h3 id="Q7">q7</h3>
+      <h3 id="Q8">q8</h3>
+    </div>
+  </div>
+
+    <div id="detailsContainer3" style="display: none;">
+    <h2 style="margin-bottom: 5px;">Others</h2>
+    <div class="frame">
+      <h3 id="Q9">q9</h3>
+      <h3 id="Q10">q10</h3>
+      <h3 id="Q11">q11</h3>
+      <h3 id="Q12">q12</h3>
+    </div>
+    </div>
+
+<!-- JavaScript for functionality -->
+<script>
+  // Array of questions for the questionnaire
+const questions = [
+    "Enter Your Name", "Enter Your E-Mail Address", "Enter your Telephone Number","Enter your address",
+    "Are you vegetarian, vegan, or omnivorous?","Do you have any food allergies?", "Do you follow any specific dietory plan?", 
+    "Do you prefer organic or conventional products?", "How frequent are your grocery shopping trips?",
+    "Do you have any tips for maintaining a healthy work-life balance?", "What are your favorite healthy recipes or meals?", "What are your main health and wellness goals?"
+  ];
+// Array of point for displaying answers
+  const point = [
+    "Name :", "E-Mail :", "Tel :","Address :",
+    "Food Preference :", "Food Allergies :", "Dietry Plan :",
+    "Product Preference :",  "Shopping Frequent :",
+    "Tips :", "Favourite Meal or Recipes :", "Health Goals :"
+  ];
+  let step=1;  // Current step in the questionnaire
+  let qs=1;  // Current question in the current step
+  let currentQuestionIndex = 0;  // Index of the current question
+  let correct_ans=0;  // Number of correct answers
+  const answers = [  // Array to store user answers
+    "", "", "",
+    "", "", "",
+    "", "", "",
+    "", "", "",
+  ];
+// Event listener for the Start Questionnaire button
+  document.getElementById('startBtn').addEventListener('click', function() {
+// Hide the start button and display the progress bar and question modal
+  document.getElementById('startBtn').style.display = 'none';
+  document.getElementById('progressBarContainer').style.display ='flex';
+  document.getElementById('questionModal').style.display = 'block';
+  updateQuestion();
+  updateProgressBar();
+  });
+// Event listener for the Next button
+  document.getElementById('nextBtn').addEventListener('click', function() {
+      // Store the answer and update the progress bar
+    document.getElementById('results').style.display = 'none';
+    answers[currentQuestionIndex] = document.getElementById('answerInput').value ||"";
+    if(answers[currentQuestionIndex]!=""){
+    correct_ans++;}
+
+        // Display results for the first, second, and third stages
+    if (currentQuestionIndex == 3) {
+      document.getElementById('results').style.display = 'flex';
+      show_firstResults();
+
+    }
+    else if (currentQuestionIndex == 7) {
+      document.getElementById('results').style.display = 'flex';
+      show_secondResults();
+
+    }
+    else if (currentQuestionIndex == 11) {
+      document.getElementById('results').style.display = 'flex';
+      show_thirdResults();
+    }
+   // Move to the next question or end the questionnaire
+    if (currentQuestionIndex < questions.length - 1) {
+      currentQuestionIndex++;
+      updateQuestion();
+      updateProgressBar();
+    } else {
+      document.getElementById('questionModal').style.display = 'none';
+     updateProgressBar(); 
+     showResults();
+      viewprof();
+    }
+   
+  });
+// Event listener for the Previous button
+  document.getElementById('prevBtn').addEventListener('click', function() {
+     // Decrease correct_ans if necessary, hide results, and move to the previous question
+    if(correct_ans>0){
+      correct_ans--;
+    }
+    
+    document.getElementById('results').style.display = 'none';
+    if (currentQuestionIndex > 0) {
+      currentQuestionIndex--;
+      updateProgressBar();
+      updateQuestion();
+    }
+    
+  });
+// Event listener for the Skip button
+  document.getElementById('skipBtn').addEventListener('click', function() {
+   // Skip the current question and move to the next question or end the questionnaire
+    document.getElementById('results').style.display = 'none';    
+    answers[currentQuestionIndex]="";
+    if (currentQuestionIndex == 3) {
+      document.getElementById('results').style.display = 'flex';
+      show_firstResults();
+    }
+    else if (currentQuestionIndex == 7) {
+      document.getElementById('results').style.display = 'flex';
+      show_secondResults();
+    }
+    else if (currentQuestionIndex == 11) {
+      document.getElementById('results').style.display = 'flex';
+      show_thirdResults();
+    }
+
+    if (currentQuestionIndex < questions.length - 1) {
+
+      currentQuestionIndex++;
+      
+      updateQuestion();
+      updateProgressBar();
+    } else {
+      document.getElementById('questionModal').style.display = 'none';
+      updateProgressBar();
+      showResults();
+      viewprof();
+    }
+    
+  });
+// Function to update the current question and its step
+  function updateQuestion() {
+    step=Math.trunc((currentQuestionIndex)/4)+1;
+    qs=(currentQuestionIndex%4)+1;
+    document.getElementById('heading').innerText="STEP "+step+" STAGE | Questtion"+qs+"/4";
+    document.getElementById('questionText').innerText = questions[currentQuestionIndex];
+    document.getElementById('answerInput').value = answers[currentQuestionIndex] || '';
+  }
+// Function to display all answers after completing the questionnaire
+  function showResults() {
+    const resultsContainer = document.getElementById('results');
+  let listItems = '<ul>';
+  for (let i = 0; i < 12; i++) {
+    listItems += '<li>' + point[i] + answers[i] + '</li>';
+  }
+
+  listItems += '</ul>';
+  resultsContainer.innerHTML = listItems;
+  showModal();
+    showModal();// Show the results modal
+    
+  }
+
+  
+// Function to display results for the first stage
+  function show_firstResults() {
+    step=2;
+    qs=1;
+  const resultsContainer = document.getElementById('results');
+  let listItems = '<ul>';
+  
+  for (let i = 0; i < 4; i++) {
+    listItems += '<li>' + point[i] + answers[i] + '</li>';
+  }
+
+  listItems += '</ul>';
+  resultsContainer.innerHTML = listItems;
+  showModal(); // Show the results modal
+}
+// Function to display results for the second stage
+function show_secondResults() {
+  step=3;
+    qs=1;
+  const resultsContainer = document.getElementById('results');
+  let listItems = '<ul>';
+  
+  for (let i = 4; i < 8; i++) {
+    listItems += '<li>' + point[i] + answers[i] + '</li>';
+  }
+
+  listItems += '</ul>';
+  resultsContainer.innerHTML = listItems;
+  showModal();
+}
+// Function to display results for the third stage
+function show_thirdResults() {
+  const resultsContainer = document.getElementById('results');
+  let listItems = '<ul>';
+
+  for (let i = 6; i < 12; i++) {
+    listItems += '<li>' + point[i] + answers[i] + '</li>';
+  }
+
+  listItems += '</ul>';
+  resultsContainer.innerHTML = listItems;
+  showModal();
+}
+
+// Function to update the progress bar
+  function updateProgressBar() {
+    const progressBarFill = document.querySelector('.progress-fill');
+    const totalQuestions = questions.length;
+    const progressPercentage = (correct_ans / (totalQuestions)) * 100;
+
+    progressBarFill.style.width = `${progressPercentage}%`; 
+    document.getElementById('progresspre').innerText="Progress : "+Math.round(progressPercentage)+"%";
+    const steps = document.querySelectorAll('.step');
+    steps.forEach((step, index) => {
+      if (index <= currentQuestionIndex) {
+        step.classList.add('active');
+      } else {
+        step.classList.remove('active');
+      }
+    });
+  }
+
+// Event listener for closing the results modal
+  document.querySelector('.close-btn').addEventListener('click', function() {
+  document.getElementById('resultsModal').style.display = 'none';
+});
+
+// Function to show the results modal
+function showModal() {
+  document.getElementById('resultsModal').style.display = 'block';
+}
+// Function to display user profile based on answers
+function viewprof(){
+  document.getElementById('detailsContainer1').style.display='block';
+  document.getElementById('detailsContainer2').style.display='block';
+  document.getElementById('detailsContainer3').style.display='block';
+  document.getElementById('detailsContainer').style.display='block';
+  document.getElementById('Q1').innerText=answers[0];
+  document.getElementById('Q2').innerText=point[1]+" "+answers[1];
+  document.getElementById('Q3').innerText=point[2]+" "+answers[2];
+  document.getElementById('Q4').innerText=point[3]+" "+answers[3];
+
+  document.getElementById('Q5').innerText=point[4]+" "+answers[4];
+  document.getElementById('Q6').innerText=point[5]+" "+answers[5];
+  document.getElementById('Q7').innerText=point[6]+" "+answers[6];
+  document.getElementById('Q8').innerText=point[7]+" "+answers[7];
+
+  document.getElementById('Q9').innerText=point[8]+" "+answers[8];
+  document.getElementById('Q10').innerText=point[9]+" "+answers[9];
+  document.getElementById('Q11').innerText=point[10]+" "+answers[10];
+  document.getElementById('Q12').innerText=point[11]+" "+answers[11];
+
+
+}
+</script>
+<footer>
+  <div class="footer-content">
+      <div class="footer-section about">
+          <h3>About Us</h3>
+          <p>Bringing Nature's Best to Your Plate: Where Freshness Meets Flavor. We are team greenMart.lk</p>
+          <div class="contact">
+              <span><i class="fas fa-phone"></i> 123-456-7890</span>
+              <span><i class="fas fa-envelope"></i> greenMart@gmail.com</span>
+          </div>
+          <a class="button" href="../HTML/EditorsPageNawoda.html" target="_blank">Edited by: Nawoda Wadisingha</a>
+      </div>
+      <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li>
+          </ul>
+      </div>
+      <div class="footer-section contact-form">
+          <h3>Contact Us</h3>
+          <form action="#">
+              <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+              <textarea name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+              <button type="submit" class="btn btn-big contact-btn">
+                  <i class="fas fa-envelope"></i>
+                  Send
+              </button>
+          </form>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      &copy; greenMart.lk | Designed by G22 - Group 10
+      <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+  </div>
+</footer> 
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
